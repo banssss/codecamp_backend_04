@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="../commons.style.css" rel='stylesheet'/>
+    <link href="./index_5.style.css" rel='stylesheet'/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='object_info_wrapper'>
+        <div id='object_example_wrapper'>
+            <div id='object_const_wrapper'>
+                <div> const Obj = { </div>
+
+                <div id='object_const_contents'>
+
+                </div>
+
+                <!-- <div style="margin-left : 30px"> "name" : <b class="red">"철수"</b>, </div>
+                <div style="margin-left : 30px"> "age" : <b class="blue">12</b>, </div>
+                <div style="margin-left : 30px"> "school" : { </div>
+                    <div style="margin-left : 50px"> "name" : <b class="red">"다람쥐 초등학교"</b> </div>
+                <div style="margin-left : 30px"> } </div> -->
+                <div> } </div>
+            </div>
+
+            <div id='object_const_add_and_remove'>
+                <div id='object_add_wrapper' class="add_and_remove_wrapper">
+                    <h4> - 객체 데이터 추가 / 변경 </h4>
+
+                    <div class="functions"> 
+                        <div>
+                            <b> Obj.</b> 
+                            <input class="function_input add_input" name="add_key" autocomplete="off"/>
+                            = <input class="add_input" name='add_value' type='text' autocomplete="off" />
+                        </div>
+
+                        <div class="action_btn">
+                            <button onclick="addFunction()"> Action </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id='object_add_wrapper' class="add_and_remove_wrapper">
+                    <h4> - 객체 데이터 삭제 </h4>
+
+                    <div class="functions"> 
+                        <div>
+                            <b class="purple">delete </b> 
+                            <b> Obj.</b> 
+                            <input class="function_input" name="remove" autocomplete="off"/>
+                        </div>
+
+                        <div class="action_btn">
+                            <button onclick="removeFunction()"> Delete </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../script.js" onload="setData()"> </script>
+</body>
+</html>

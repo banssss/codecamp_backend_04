@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="./index_5.style.css" rel='stylesheet'/>
+    <link href="../commons.style.css" rel='stylesheet'/>
+    <script src='../script.js'> </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='array_info_wrapper'>
+        <div id='array_example_wrapper'>
+            <div id='array_rows'>
+                <div class='array_form'> [ </div>
+                <div class='array_example_data'> 
+                    <div class='blue'> 1 </div>
+                    <div> , </div>
+                    <div class='red'> "안녕하세요?" </div>
+                    <div> , </div>
+                    <div class='blue'> { "key" : "value" } </div>
+                    <div> , </div>
+                    <div class='red'> [ "2" ] </div>
+                </div>
+                <div class='array_form'> ] </div>
+                <div class="array_form"> 
+                    <b class='array_form_margin'>[</b> 
+                        <input onchange="changeIndex()" type='number' id='index_input' value="0" min="0" max="4" />
+                    <b class='array_form_margin'> ] </b> 
+                </div>
+            </div>
+
+            <div id="array_index_result">
+                1
+            </div>
+        </div>
+
+        <div id='array_example_ment'>
+            <div> 배열의 index 로 해당 데이터에 접근할 수 있다.</div>
+        </div>
+    </div>
+</body>
+</html>

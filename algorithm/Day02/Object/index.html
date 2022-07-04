@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="./style.css" rel='stylesheet'/>
+    <link href="./commons.style.css" rel='stylesheet'/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link
+        rel="stylesheet"
+        href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+        crossorigin="anonymous"
+    />
+
+    <title> 2일차 : 알고리즘 - 객체 </title>
+</head>
+<body>
+    <div id='object_wrapper'>
+        <div id='object_item'>
+            <div id='object_title_wrapper'>
+                <h2 id='object_title'> 객체 ( Object )</h2>
+                <div id='paging_wrapper'>
+                    <div> <i class="fas fa-angle-left" onClick="movePrev()"></i> </div>
+                    <div> <b id='currentPage'>0</b> / 5 </div>
+                    <div> <i class="fas fa-angle-right" onClick="moveNext()"></i> </div>
+                </div>
+            </div>
+
+            <div id='object_contents'>
+                <iframe id='object_contents_frame' src='./page/index_0.html'> </iframe>
+            </div>
+        </div>
+    </div>
+
+    <script src='./script.js'> </script>
+</body>
+</html>

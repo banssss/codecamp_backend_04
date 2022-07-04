@@ -1,0 +1,124 @@
+body {
+    overflow-y: hidden;
+    scrollbar-width : 0px;
+}
+
+#current_array_wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    justify-content: center;
+    border-bottom: solid 1px #ababab;
+    background-color: antiquewhite;
+
+}
+
+#current_array_list_wrapper {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    justify-content: space-between;
+    margin: 0px 15px;
+}
+
+.current_array_form {
+    font-weight: 900;
+    font-size: 40px;
+}
+
+#current_array_list_item {
+    width: 911px;
+    height: 25px;
+    overflow-x: auto;
+    /* margin-top : 12px; */
+}
+
+#current_array_list_item div {
+    display: inline-block;
+    margin-right: 25px;
+    font-size : 18px;
+    font-weight: 900;
+}
+
+.array_list {
+    margin-right: 40px;
+    font-weight: 900;
+}
+
+#current_array_add_wrapper, #current_array_remove_wrapper {
+    height: 105px;
+    border-bottom: dotted 1px black;
+}
+
+#current_array_other_wrapper {
+    height: 100px;
+}
+
+.option_itemts {
+    padding : 10px;
+
+}
+
+.option_itemts h4 {
+    margin: 0px;
+    color : #6B7AA1;
+}
+
+.current_array_function_list {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.current_array_function {
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.current_array_flex {
+    display: flex;
+}
+
+.function_title {
+    width : 100px;
+    border-right: solid 1px #ababab;
+}
+
+.function_ment {
+    width : 300px;
+    padding-left: 15px;
+}
+
+.function_start {
+    justify-content: flex-end;
+    width: 400px;
+    align-items: center;
+}
+
+.function_parameter {
+    width: 240px;
+    padding-right: 20px;
+    text-align: right;
+}
+
+.function_input {
+    width: 100px;
+}
+
+.current_array_flex button {
+    width : 80px;
+    height: 30px;
+    background-color: white;
+    color : black;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.function_other_result {
+    width : 80px;
+    text-align: center;
+    font-weight: 900;
+}

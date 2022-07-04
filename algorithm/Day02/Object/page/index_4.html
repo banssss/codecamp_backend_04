@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="../commons.style.css" rel='stylesheet'/>
+    <link href="./index_4.style.css" rel='stylesheet'/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='object_info_wrapper'>
+        <div id='object_example_wrapper'>
+            <div id='object_const_wrapper'>
+                <div> const Obj = { </div>
+                <div style="margin-left : 30px"> "name" : <b class="red">"철수"</b>, </div>
+                <div style="margin-left : 30px"> "age" : <b class="blue">12</b>, </div>
+                <div style="margin-left : 30px"> "school" : { </div>
+                    <div style="margin-left : 50px"> "name" : <b class="red">"다람쥐 초등학교"</b> </div>
+                <div style="margin-left : 30px"> } </div>
+                <div> } </div>
+            </div>
+
+            <div id='object_search_wrapper'>
+                <div class="object_serach_result">
+                    <div> Obj.name </div>
+                    <div> <b class="red">"철수"</b> </div>
+                </div>
+
+                <div class="object_serach_result">
+                    <div> Obj.age </div>
+                    <div> <b class="blue">12</b> </div>
+                </div>
+
+                <div class="object_serach_result">
+                    <div> Obj.school </div>
+                    <div> { "name" : <b class="red">"다람쥐 초등학교"</b> } </div>
+                </div>
+
+                <div class="object_serach_result">
+                    <div> Obj.school.name </div>
+                    <div> <b class="red">"다람쥐 초등학교"</b> </div>
+                </div>
+            </div>
+        </div>
+
+        <div id='object_example_ment'>
+            <div> 객체의 데이터를 조회할 때는 </div>
+            <div> 객체의 Key 값을 이용해 조회할 수 있다.</div>
+        </div>
+    </div>
+</body>
+</html>

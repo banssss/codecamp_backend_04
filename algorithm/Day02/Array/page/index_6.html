@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="./index_6.style.css" rel='stylesheet'/>
+    <link href="../commons.style.css" rel='stylesheet'/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='array_info_wrapper'>
+        <div id='current_array_wrapper'>
+            <div id='current_array_list_wrapper'>  
+                <div class='current_array_form'> [ </div>
+                <div id='current_array_list_item'>
+                </div>
+                <div class='current_array_form'> ] </div>
+            </div>
+        </div>
+
+        <div id='current_array_option_wrapper'>
+            <div id='current_array_add_wrapper' class="option_itemts">
+                <h4> - 데이터 추가 </h4>
+
+                <div class='current_array_function_list'>
+                    <div class='current_array_function'>
+                        <div class="current_array_flex">
+                            <div class="function_title"> push </div>
+                            <div class="function_ment"> 배열 맨 뒤에 데이터 추가 </div>
+                        </div>
+
+                        <div class="current_array_flex function_start">
+                            <div class='function_parameter'> Array.push( <input class="function_input" name="push" /> ) </div>
+                            <div class='function_btn'> <button onclick="arrayFuncton('push')"> Push </button> </div>
+                        </div>
+                    </div>
+
+                    <div class='current_array_function'>
+                        <div class="current_array_flex">
+                            <div class="function_title"> unshift </div>
+                            <div class="function_ment"> 배열 맨 앞에 데이터 추가 </div>
+                        </div>
+
+                        <div class="current_array_flex function_start">
+                            <div class='function_parameter'> Array.unshift( <input class="function_input" name="unshift" /> ) </div>
+                            <div class='function_btn'> <button onclick="arrayFuncton('unshift')"> Unshift </button> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id='current_array_remove_wrapper' class="option_itemts">
+                <h4> - 데이터 삭제 </h4> 
+                
+                <div class='current_array_function_list'>
+                    <div class='current_array_function'>
+                        <div class="current_array_flex">
+                            <div class="function_title"> pop </div>
+                            <div class="function_ment"> 배열 맨 뒤의 데이터 삭제 </div>
+                        </div>
+
+                        <div class="current_array_flex function_start">
+                            <div class='function_parameter'> 　</div>
+                            <div class='function_btn'> <button onclick="arrayFuncton('pop')"> Pop </button> </div>
+                        </div>
+                    </div>
+
+                    <div class='current_array_function'>
+                        <div class="current_array_flex">
+                            <div class="function_title"> shift </div>
+                            <div class="function_ment"> 배열 맨 앞의 데이터 삭제 </div>
+                        </div>
+
+                        <div class="current_array_flex function_start">
+                            <div class='function_parameter'> 　</div>
+                            <div class='function_btn'> <button onclick="arrayFuncton('shift')"> Shift </button> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id='current_array_other_wrapper' class="option_itemts">
+                <h4> - 데이터 조회 </h4> 
+
+                <div class='current_array_function_list'>
+                    <div class='current_array_function'>
+                        <div class="current_array_flex">
+                            <div class="function_title"> indexOf </div>
+                            <div class="function_ment"> 데이터의 index 값 반환 </div>
+                        </div>
+
+                        <div class="current_array_flex function_start">
+                            <div class='function_parameter'> Array.indexOf( <input class="function_input" name="indexOf" onchange="arrayFuncton('indexOf')" /> ) </div>
+                            <div class='function_other_result' id='indexOf_result'> null </div>
+                        </div>
+                    </div>
+
+                    <div class='current_array_function'>
+                        <div class="current_array_flex">
+                            <div class="function_title"> includes </div>
+                            <div class="function_ment"> 데이터의 존재 여부 반환 (true / false) </div>
+                        </div>
+
+                        <div class="current_array_flex function_start">
+                            <div class='function_parameter'> Array.includes( <input class="function_input" name="includes" onchange="arrayFuncton('includes')" /> ) </div>
+                            <div class='function_other_result' id='includes_result'> null </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src='../script.js' onload="setList()"> </script>
+</body>
+</html>
