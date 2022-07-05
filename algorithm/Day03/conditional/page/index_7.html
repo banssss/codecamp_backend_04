@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="./index_7.style.css" rel='stylesheet'/>
+    <link href="../commons.style.css" rel='stylesheet'/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='condition_info_wrapper'>
+        <div id='condition_example_wrapper'>
+            <div id='condition_select_value'>
+                <div class="select" id="select_2" onclick="selectFunction(2)"> const a = 2 </div>
+                <div id="select_1" onclick="selectFunction(1)"> const a = 1 </div>
+                <div id="select_0" onclick="selectFunction(0)"> const a = 0 </div>
+            </div>
+
+            <div id='condition_result_value'>
+                <div id='condition_result_showing_wrapper'>
+
+                </div>
+            </div>
+
+            <!-- <div id='condition_example_data'>
+                <div class="yellow"> const a = 1; </div>
+                <div> if( <b class="red">a > 1</b> )  { </div>
+                <div style="padding-left: 50px; font-size: 22px; padding-top : 10px"> a 가 1 보다 크다. </div>
+                <div style="padding : 10px 0px"> } else <b class="purple">if( a === 1 ) { </div>
+                <div style="padding-left: 50px; font-size: 22px;">  a 와 1 이 같다.  </div>
+                <div style="padding : 10px 0px"> } </b> else { </div>
+                <div style="padding-left: 50px; font-size: 22px;"> a 가 1 보다 작다. </div>
+                <div> } </div>
+            </div> -->
+        </div>
+    </div>
+
+    <script src='../script.js' onload="getObjResult()"> </script>
+</body>
+</html>
