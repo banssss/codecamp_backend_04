@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="./index_6.style.css" rel='stylesheet'/>
+    <link href="../commons.style.css" rel='stylesheet'/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link
+        rel="stylesheet"
+        href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+        crossorigin="anonymous"
+    />
+</head>
+<body>
+    <div id='loof_info_wrapper'>
+        <div id='loof_example_wrapper'>
+            <div id='loof_paging_wrapper'> 
+                <div id='loof_paging_item'>
+                    <div> <i class="fas fa-angle-left" onclick="pageMove('prev')"></i> </div>
+                    <div> <b id='currentPage'>1 </b> / 6 </div>
+                    <div> <i class="fas fa-angle-right" onclick="pageMove('next')"></i> </div>
+                </div>
+            </div>
+
+            <div id='loof_result_example_wrapper'>
+                <div id='loof_example_data'>
+                    <div id='loof_example_flex'>
+                        <div> for( let i = <b class="blue">0</b>; i < 5; i = i + 1 ) { </div>
+                        <div style="padding : 20px 70px; font-size: 27px;"> console.log('안녕하세요?') </div>
+                        <div> } </div>
+                    </div>
+                </div>
+
+                <div id='loof_example_result'>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src='./index_6.js' onload="setInit()"> </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+#loof_info_wrapper {
+    display : flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#loof_function_wrapper {
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height : 325px;
+    align-items: baseline;
+}
+
+.loof_function_items {
+    width : 50%;
+    display : flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    justify-self: space-between;
+    padding-top : 20px;
+    /* height: 100%; */
+    height : 305px;
+}
+
+.loog_function_title_wrapper {
+    text-align : center;
+}
+
+.loof_function_image {
+    width : 500px;
+    height : 200px;
+    margin-top : 57px;
+}
+
+.borderRight {
+    border-right : solid 2px #eee;
+}
+
+#loof_example_data {
+    display : flex;
+    align-items: left;
+    width : 60%;
+    font-size: 40px;
+    justify-content: space-evenly;
+    margin-top : 75px;
+    flex-direction: column;
+}
+
+.blue {
+    color : #2D46B9;
+}
+
+.red {
+    color : #B42B51;
+}
+
+#loof_example_ment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: solid 1px #ababab;
+    text-align: center;
+    font-size: 30px;
+    height: 150px;
+    flex-direction: column;
+}
+
+.purple {
+    color : #AE00FB;
+}
+
+.loof_example {
+    padding : 0px 20px;
+    color : #AE00FB;
+    font-weight: 900;
+}
+
+.underline {
+    border-bottom: solid 3px black;
+    padding-bottom: 40px;
+    margin-top : 65px;
+}
+
+#length_size {
+    color : #AE00FB;
+}
+
+#loof_result_img {
+    position: absolute;
+    right: 10px;
+    margin-top: 80px;
+}
+
+.bold {
+    font-weight: 900;
+}
+
+#loof_other_list_wrapper {
+    height : 40px;
+    border-bottom : solid 1px #ababab;
+    font-weight : 700;
+    background-color: #eee;
+    color : black;
+    font-size : 18px;
+}
+
+.loof_info_list_wrapper {
+    height : 70px;
+    border-bottom : dotted 1px #ababab;
+    /* font-weight : 400; */
+    font-size : 20px;
+}
+
+.list_wrapper {
+    width : 100%;
+    display: flex;
+    align-items: center;
+}
+
+.list_wrapper b {
+    color : #AE00FB;
+}
+
+.name { width : 200px; text-align: center; }
+.description { width : 350px; }
+.use { width : 200px; text-align: center; }
+.docs { width : 300px; text-align: center; }
+
+.notBoard {
+    border : none;
+}
