@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href='./index.css' rel='stylesheet'>
+    <script src='./index.js'> </script>
+    <title> 알고리즘 실무문제 </title>
+</head>
+<body>
+    <div id='loopWrapper'>
+        <div id='loopContentsWrapper'>
+            <h2 id='loopContentsTitle'> 알고리즘 : <b> 실무문제 </b> </h2>
+        
+            <div id='loopQuestionWrapper'>
+                <div class='loopQuestionItem'>
+                    <div class='loopQuestionTitle'>
+                        <h4> 조건문 : 점수에 따른 등급 </h4>
+                        <img alt='' src='./open.png' onclick="toggle('gradeCat')"/>
+                    </div>
+                    
+                    <div class='toggleCat' id='gradeCat'>
+                        <div class='loopFunctions'>
+                            <form target='grade' onsubmit="return grades()">
+                                <div> grade( <input type='number' name='grade' autocomplete="off" /> ) </div>
+                                <div> <input class='submitBtn' type='submit' value='실행'/> </div>
+                            </form>
+                        </div>
+                        <iframe name='grade' style="display : none"></iframe>
+
+
+                        <div class="loopFunctionAnswer">
+                            <b id='grade' class='result'> null </b>
+                        </div>
+
+                        <div class='debugger'>
+                            <h4> Debug </h4>
+
+                            <div class="debugInfo" id='gradeDebug'>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='loopQuestionItem'>
+                    <div class='loopQuestionTitle'>
+                        <h4> 반복문 : 마이페이지 </h4>
+                        <img alt='' src='./open.png' onclick="toggle('myPageCat')"/>
+                    </div>
+
+                    <div class='toggleCat' id='myPageCat'>
+                        <div class='loopFunctions'>
+                            <div> 
+                                myPage( 
+                                    <select name='myPageSelect' onchange="myPage(event)">
+                                        <option disabled selected> -- </option>
+                                        <option value='의류'> 의류 </option>
+                                        <option value='과일'> 과일 </option>
+                                        <option value='장난감'> 장난감 </option>
+                                    </select> 
+                                ) 
+                            </div>
+                        </div>
+
+                        <div class="loopFunctionAnswer">
+                            <b id='myPage' class='result'> null </b>
+                        </div>
+
+                        <div class='debugger'>
+                            <h4> Debug <img alt='' src='/debug.png' onclick="openDebug('myPageDebug', true)" /> </h4>
+
+                            <div class="debugInfo" id='myPageDebug'>
+                                <div id='pageFlex'>
+                                    <div id='pageLeft'> <img alt='' id='leftIcon' src='/left_gray.png' onclick="movePage('left')" /> </div>
+                                    <div id='pageRight'> <img alt='' id='rightIcon' src='/right.png' onclick="movePage('right')"> </div>
+                                </div>
+
+                                <div id='myPageDebugContents'>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
