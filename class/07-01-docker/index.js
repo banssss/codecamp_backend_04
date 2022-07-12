@@ -1,0 +1,1 @@
+console.log("Hello world! run 'index.js' in Docker image! | banssss")
