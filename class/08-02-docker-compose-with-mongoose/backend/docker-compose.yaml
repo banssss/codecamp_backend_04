@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  my-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes: # local index : docker index
+      - ./index.js:/myfolder/index.js
+      - ./email.js:/myfolder/email.js
+    ports:
+      - 3000:3000 #local에서 postman으로 실험하기 위함
+
+
+  my-database:
+    image: mongo:5
+    ports:
+      - 27017:27017 #local에서 mongoDB Compass로 확인하기 위함
