@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  hw-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes: # local index : docker index
+      - ./index.js:/hwfolder/index.js
+      - ./phone.js:/hwfolder/phone.js
+    ports:
+      - 3000:3000 #local에서 postman으로 실험하기 위함
+
+
+  hw-database:
+    image: mongo:5
+    ports:
+      - 27017:27017 #local에서 mongoDB Compass로 확인하기 위함
