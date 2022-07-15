@@ -2,7 +2,15 @@
 const getUser = async () => {
   // 받은 데이터로 createUserDiv함수를 이용해
   // 목록 화면을 완성해주세요.
-  createUserDiv()
+  axios.get('http://localhost:3000/users')
+  .then((res) => {
+      // 성공 핸들링
+      let users = res.data;
+      // 2. 받은 데이터로 createMenuCard 함수를 이용해 메뉴 카드를 모두 만들어주세요.
+      for(user of users){
+        createUserDiv(user);
+      }
+  });
 }
 
 const createUserDiv = (data) => {

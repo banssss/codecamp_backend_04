@@ -72,7 +72,7 @@ app.patch('/tokens/phone', async (req,res)=>{
     // 2-2. 일치하면 isAuth를 true로 변경하여 DB에 저장후 클라이언트에 true 응답하기.
     if(myToken === dbToken){
         result.isAuth = true;
-        await result.updateOne({phone:myphone}, {$set:{isAuth:true}});
+        await Token.updateOne({phone:myphone}, {$set:{isAuth:true}});
         res.send(true);
     }
 });

@@ -8,6 +8,11 @@ services:
     volumes: # local index : docker index
       - ./index.js:/miniproject/index.js
       - ./phone.js:/miniproject/phone.js
+      - ./email.js:/miniproject/email.js
+      - ./scraping.js:/miniproject/scraping.js
+      - ./utils.js:/miniproject/utils.js
+      - ./models/:/miniproject/models/
+      - ./swagger/:/miniproject/swagger/
     ports:
       - 3000:3000 #local에서 postman으로 실험하기 위함
 

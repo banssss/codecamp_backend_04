@@ -2,7 +2,16 @@
 const getCoffee = async () => {
   // 받은 데이터로 createMenuCard 함수를 이용해
   // 메뉴 카드를 만들어주세요.
-  createMenuCard()
+  // 1. 백엔드 서버로 /starbucks API 요청해 커피 데이터를 받는다.
+  axios.get('http://localhost:3000/starbucks')
+  .then((res) => {
+      // 성공 핸들링
+      let items = res.data;
+      // 2. 받은 데이터로 createMenuCard 함수를 이용해 메뉴 카드를 모두 만들어주세요.
+      for(coffee of items){
+        createMenuCard(coffee);
+      }
+  });
 }
 
 const createMenuCard = (data) => {

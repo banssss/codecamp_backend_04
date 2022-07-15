@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 import 'dotenv/config';
 
 export function getWelcomeTemplate(name, phone, prefer) {
-    const mytemplate = `
+    const myTemplate = `
         <html>
             <body>
                 <div style="display:flex; flex-direction: column; align-items: center;">
@@ -19,7 +19,7 @@ export function getWelcomeTemplate(name, phone, prefer) {
             </body>
         </html>
     `
-    return mytemplate;
+    return myTemplate;
 }
 
 export function checkValidationEmail(email){
