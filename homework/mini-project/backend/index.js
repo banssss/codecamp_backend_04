@@ -108,7 +108,12 @@ app.post('/tokens/phone', async (req, res) => {
     } else {
         result.token = myToken;
         await Token.updateOne({phone:myPhone}, {$set:{token:myToken}});
-        // 3-2-2. 폰 번호에 토큰 전송하기
+        // 3-2-2. 폰 번호가 이미 가입되어있는 번호라면, 에러 메시지 출력하기.
+        if(result.isAuth){
+            res.status(422).send("이미 가입되어있는 번호입니다.")
+            return;
+        }
+        // 3-2-3. 폰 번호에 토큰 전송하기
         // sendTokenToSMS(myPhone, myToken);
         res.send(
             // addDashToPhone(result.phone)+'으로 인증 문자가 전송되었습니다.'
