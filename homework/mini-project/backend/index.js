@@ -99,7 +99,7 @@ app.post('/tokens/phone', async (req, res) => {
         });
         await token.save();
         // 3-1-2. 폰 번호에 토큰 전송하기
-        // sendTokenToSMS(myPhone, myToken);
+        sendTokenToSMS(myPhone, myToken);
         res.send(
             // addDashToPhone(token.phone)+'으로 인증 문자가 전송되었습니다.'
             "핸드폰으로 인증 문자가 전송되었습니다!"
@@ -114,7 +114,7 @@ app.post('/tokens/phone', async (req, res) => {
             return;
         }
         // 3-2-3. 폰 번호에 토큰 전송하기
-        // sendTokenToSMS(myPhone, myToken);
+        sendTokenToSMS(myPhone, myToken);
         res.send(
             // addDashToPhone(result.phone)+'으로 인증 문자가 전송되었습니다.'
             "핸드폰으로 인증 문자가 전송되었습니다!"
