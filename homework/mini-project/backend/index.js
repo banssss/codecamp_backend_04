@@ -107,7 +107,7 @@ app.post('/tokens/phone', async (req, res) => {
     // 3-2-1. 폰 번호가 이미 저장되어있는 중복번호라면, token 업데이트하기
     } else {
         result.token = myToken;
-        await Token.updateOne({phone:myPhone}, {$set:{token:myToken}});
+        await Token.updateOne({phone:myPhone}, {token:myToken});
         // 3-2-2. 폰 번호가 이미 가입되어있는 번호라면, 에러 메시지 출력하기.
         if(result.isAuth){
             res.status(422).send("이미 가입되어있는 번호입니다.")
