@@ -1,0 +1,49 @@
+-- 1. 전자제품, 음식, 의류 카테고리 만들기.
+-- 2. product 데이터를 전자제품 카테고리와 연결시키기.
+-- 3. 두 테이블을 합쳐서, 상품, 카테고리 보여주기
+;
+desc product 
+;
+
+show databases
+;
+
+use mydocker04
+;
+
+show tables
+;
+
+select * from product_category
+;
+
+INSERT into product_category (id, name)
+	values(uuid(), "전자제품")
+;
+
+INSERT into product_category (id, name)
+	values(uuid(), "음식")
+;
+
+INSERT into product_category (id, name)
+	values(uuid(), "의류")
+;
+
+INSERT into product (id, name, description, price, isSoldout)
+	values(uuid(), "데스크탑", "맥미니입니다. 사고싶죠?", 990000,false)
+;
+
+SELECT * FROM product
+; 
+
+UPDATE product
+	set productCategoryId = "8e6ce0c5-0bf8-11ed-8031-0242ac1c0002"
+	WHERE name = '노트북'
+	OR name = '마우스'
+	OR name = '데스크탑'
+;
+
+SELECT p.id as "상품ID", p.name as "상품명", pc.id as "카테고리ID", pc.name as "카테고리명", price, isSoldout as "판매여부"
+	FROM product p, product_category pc 
+	WHERE p.productCategoryId = pc.id 
+;
