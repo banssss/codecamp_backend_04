@@ -33,7 +33,7 @@ export class User {
   @Column({ type: 'timestamp' })
   signupDate: Date;
 
-  @Column({ type: 'timestamp' })
+  @Column({ type: 'tinyint', width: 1 })
   isSignout: boolean;
 
   @Column({ type: 'timestamp' })
