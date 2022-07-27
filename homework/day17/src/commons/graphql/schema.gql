@@ -6,11 +6,16 @@ type Product {
   id: String!
   productName: String!
   price: Int!
-  termValidity: String!
+  termValidity: DateTime!
   productWeight: Float!
   productDescription: String!
   amount: Int!
 }
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
 
 type Query {
   fetchProducts: [Product!]!
@@ -30,11 +35,6 @@ input CreateProductInput {
   productDescription: String!
   amount: Int!
 }
-
-"""
-A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
-"""
-scalar DateTime
 
 input UpdateProductInput {
   productName: String

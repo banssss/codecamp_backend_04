@@ -1,5 +1,6 @@
 import { Injectable, UnprocessableEntityException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { validate } from 'graphql';
 import { Repository } from 'typeorm';
 import { Product } from './entities/product.entity';
 
@@ -11,13 +12,24 @@ export class ProductsService {
   ) {}
 
   // fetchProducts (모든상품)
-  findAll() {
-    return this.productRepository.find();
+  async findAll() {
+    const result = await this.productRepository.find();
+    let value;
+    // Date 표기 임시처리
+    for (value of result) {
+      value.termValidity = new Date(value.termValidity);
+    }
+    return result;
   }
 
   // fetchProduct (단일상품)
-  findOne({ productId }) {
-    return this.productRepository.findOne({ where: { id: productId } });
+  async findOne({ productId }) {
+    const result = await this.productRepository.findOne({
+      where: { id: productId },
+    });
+    // Date 표기 임시처리
+    result.termValidity = new Date(result.termValidity);
+    return result;
   }
 
   async create({ createProductInput }) {
@@ -47,16 +59,13 @@ export class ProductsService {
   }
 
   async checkTermValidityOnUpdate({ updateProductInput }) {
-    const product = await this.productRepository.findOne({
-      where: { id: updateProductInput.id },
-    });
     // today - 오늘날짜 | productTermValidity - 입력받은 날짜
     const today = new Date();
     const productTermValidity = new Date(updateProductInput.termValidity);
     console.log(today, productTermValidity);
     if (productTermValidity < today)
       throw new UnprocessableEntityException(
-        '유통기간이 지난 상품입니다. 데이터를 수정할 수 없습니다.',
+        '유통기한이 지난 상품입니다. 데이터를 수정할 수 없습니다.',
       );
   }
 
@@ -67,7 +76,7 @@ export class ProductsService {
 
     if (productTermValidity < today)
       throw new UnprocessableEntityException(
-        '유통기간이 지난 상품입니다. 데이터를 등록할 수 없습니다.',
+        '유통기한이 지난 상품입니다. 데이터를 등록할 수 없습니다.',
       );
   }
 }

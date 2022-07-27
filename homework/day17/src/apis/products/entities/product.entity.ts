@@ -16,9 +16,9 @@ export class Product {
   @Field(() => Int)
   price: number;
 
-  @Column({ type: 'date' })
-  // @Field(() => Date) Date 형식으로 출력 시 ...to return non-nullable value, returned: null 오류 출력... 이유 찾는중
-  @Field(() => String) // 날짜 데이터 문자열로 출력.
+  @Column({ type: 'date', nullable: false })
+  @Field(() => Date) // Date 형식으로 출력 시 ...to return non-nullable value, returned: null 오류 출력... 이유 찾는중
+  // @Field(() => String) // 날짜 데이터 문자열로 출력.
   termValidity: Date;
 
   @Column('decimal', { precision: 5, scale: 1 })
