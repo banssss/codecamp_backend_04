@@ -1,6 +1,5 @@
 import { Injectable, UnprocessableEntityException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { validate } from 'graphql';
 import { Repository } from 'typeorm';
 import { Product } from './entities/product.entity';
 
@@ -62,7 +61,7 @@ export class ProductsService {
     // today - 오늘날짜 | productTermValidity - 입력받은 날짜
     const today = new Date();
     const productTermValidity = new Date(updateProductInput.termValidity);
-    console.log(today, productTermValidity);
+
     if (productTermValidity < today)
       throw new UnprocessableEntityException(
         '유통기한이 지난 상품입니다. 데이터를 수정할 수 없습니다.',
