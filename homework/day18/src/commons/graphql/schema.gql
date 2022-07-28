@@ -64,7 +64,7 @@ type Product {
   productDescription: String!
   amount: Int!
   productsCategory: ProductsCategory!
-  recipe: Recipe!
+  matchRecipe: Recipe!
 }
 
 type Query {

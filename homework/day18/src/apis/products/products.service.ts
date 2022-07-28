@@ -10,7 +10,7 @@ export class ProductsService {
     @InjectRepository(Product)
     private readonly productRepository: Repository<Product>,
 
-    // Recipe Repository 생성
+    // Recipe Repository Inject
     @InjectRepository(Recipe)
     private readonly recipeRepository: Repository<Recipe>,
   ) {}
@@ -64,9 +64,8 @@ export class ProductsService {
 
     const result = await this.productRepository.save({
       ...product,
-      matchRecipe: createRecipeResult, // 저장된 레시피 결과 통째로 넣기
       productsCategory: { id: productsCategoryId }, // id값에 맞는 productsCategory와 연결
-      recipe: { id: createRecipeResult.id },
+      matchRecipe: createRecipeResult, // 저장된 레시피 결과 통째로 넣기
     });
     return result; // 생성된 데이터 정보 리턴
   }

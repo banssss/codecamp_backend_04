@@ -57,5 +57,5 @@ export class Product {
   @JoinColumn() // 1:1 관계에서, 기준이 되는 Column임을 표현
   @OneToOne(() => Recipe)
   @Field(() => Recipe)
-  recipe: Recipe;
+  matchRecipe: Recipe;
 }
