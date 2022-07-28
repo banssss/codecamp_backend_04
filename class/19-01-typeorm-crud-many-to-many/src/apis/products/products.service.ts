@@ -40,7 +40,7 @@ export class ProductsService {
     // return result;
     //
     // // 2. 상품과 상품 거래 위치를 같이 등록하는 경우
-    const { productSaleslocation, productCategoryId, ...product } =
+    const { productSaleslocation, productCategoryId, productTags, ...product } =
       createProductInput;
 
     const result = await this.productSaleslocationRepository.save({

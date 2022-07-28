@@ -16,14 +16,14 @@ export class ProductsService {
 
   findAll() {
     return this.productRepository.find({
-      relations: ['productSaleslocation'],
+      relations: ['productSaleslocation', 'productCategory'],
     }); // JOIN 을 위한 옵션 : relations
   }
 
   findOne({ productId }) {
     return this.productRepository.findOne({
       where: { id: productId },
-      relations: ['productSaleslocation'],
+      relations: ['productSaleslocation', 'productCategory'],
     });
   }
 
@@ -40,7 +40,7 @@ export class ProductsService {
     // return result;
     //
     // // 2. 상품과 상품 거래 위치를 같이 등록하는 경우
-    const { productSaleslocation, ...product } =
+    const { productSaleslocation, productCategoryId, ...product } =
       createProductInput;
 
     const result = await this.productSaleslocationRepository.save({
@@ -49,8 +49,10 @@ export class ProductsService {
 
     const result2 = await this.productRepository.save({
       ...product,
-      productSaleslocation: result, // result 통째로 넣기 vs id만 넣기
+      productSaleslocation: { id: result.id }, // result 통째로 넣기 vs id만 넣기
       // productSaleslocation: result, // 후에 result2 를 프론트로 보내야 할 일이 생깁니다. -> 통째로 보내는 것이 효율적.
+      productCategory: { id: productCategoryId },
+      // 기획에 따라 다릅니다. 카테고리 이름을 받아오려면, createProduct.input.ts 를 수정하면 됩니다. 혹은 patch 를 하거나..
     });
 
     return result2;
