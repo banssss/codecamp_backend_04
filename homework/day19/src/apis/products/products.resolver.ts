@@ -43,12 +43,13 @@ export class ProductsResolver {
     return this.productsService.create({ createProductInput });
   }
 
-  // Product 수정 전, 수정진행 가능 여부를 체크한다.
+  // Product 수정.
   @Mutation(() => Product) // 수정한 Product 를 return 으로 설정하여 수정내용을 표기.
   async updateProduct(
     @Args('productId') productId: string,
     @Args('updateProductInput') updateProductInput: UpdateProductInput, //
   ) {
+    // Product 수정 전, 수정진행 가능 여부를 체크한다.
     // 상품의 유통기한 확인하기
     await this.productsService.checkTermValidityOnUpdate({
       updateProductInput,

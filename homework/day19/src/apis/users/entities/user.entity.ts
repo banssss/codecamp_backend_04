@@ -1,6 +1,14 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 import { Material } from 'src/apis/materials/entities/material.entity';
-import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  DeleteDateColumn,
+  Entity,
+  ManyToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity()
 @ObjectType()
@@ -9,12 +17,12 @@ export class User {
   @Field(() => String)
   id: string;
 
-  @Column('varchar', { length: 100 })
+  @Column('varchar', { length: 100, unique: true })
   @Field(() => String)
   userAccount: string;
 
   @Column('varchar', { length: 100 })
-  @Field(() => String)
+  // @Field(() => String) // password 는 front 에게 응답하지 않기 위함.
   password: string;
 
   @Column('varchar', { length: 100 })
@@ -33,25 +41,27 @@ export class User {
   @Field(() => String)
   email: string;
 
-  @Column('varchar', { length: 100 })
+  @Column('varchar', { length: 100, default: 0 })
   @Field(() => String)
   point: number;
 
-  @Column('varchar', { length: 100 })
+  @Column('varchar', { length: 100, nullable: true })
   @Field(() => String)
   creditInfo: string;
 
-  @Column({ type: 'timestamp' })
+  // 생성할 때의 시간정보 저장
+  @CreateDateColumn()
   @Field(() => Date)
-  signupDate: Date;
+  createdAt: Date;
 
-  @Column({ type: 'tinyint', width: 1 })
-  @Field(() => Boolean)
-  isSignout: boolean;
-
-  @Column({ type: 'timestamp' })
+  // 수정될 때의 시간정보 저장
+  @UpdateDateColumn()
   @Field(() => Date)
-  signoutDate: Date;
+  updatedAt: Date;
+
+  // 삭제 (회원탈퇴-softDelete) 할 때의 시간정보 저장
+  @DeleteDateColumn()
+  deletedAt: Date;
 
   // N:M 은 서로 선언해야한다. material.entity.ts 참조
   @ManyToMany(() => Material, (materials) => materials.users)

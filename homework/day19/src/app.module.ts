@@ -6,12 +6,14 @@ import { ProductsCategoriesModule } from './apis/productsCategories/productsCate
 import { LevelsModule } from './apis/levels/levels.module';
 import { ProductsModule } from './apis/products/products.module';
 import { RecipesModule } from './apis/recipes/recipes.module';
+import { UsersModule } from './apis/users/users.module';
 
 @Module({
   imports: [
     ProductsModule,
     RecipesModule,
     LevelsModule,
+    UsersModule,
     ProductsCategoriesModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,

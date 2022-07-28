@@ -20,16 +20,14 @@ type RecipesCategory {
 type User {
   id: String!
   userAccount: String!
-  password: String!
   name: String!
   nickname: String!
   phone: String!
   email: String!
   point: String!
   creditInfo: String!
-  signupDate: DateTime!
-  isSignout: Boolean!
-  signoutDate: DateTime!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   materials: [Material!]!
 }
 
@@ -55,12 +53,6 @@ type Recipe {
   materials: [Material!]!
 }
 
-type ProductsTag {
-  id: String!
-  name: String!
-  products: [Product!]!
-}
-
 type Product {
   id: String!
   productName: String!
@@ -74,12 +66,20 @@ type Product {
   productsTags: [ProductsTag!]!
 }
 
+type ProductsTag {
+  id: String!
+  name: String!
+  products: [Product!]!
+}
+
 type Query {
   fetchProducts: [Product!]!
   fetchProductsWithDeleted: [Product!]!
   fetchProduct(productId: String!): Product!
   fetchRecipes: [Recipe!]!
   fetchRecipe(recipeId: String!): Recipe!
+  fetchUsers: [User!]!
+  fetchUser(userId: String!): User!
   fetchProductsCategories: [ProductsCategory!]!
 }
 
@@ -92,6 +92,10 @@ type Mutation {
   updateRecipe(recipeId: String!, updateRecipeInput: UpdateRecipeInput!): Recipe!
   deleteRecipe(recipeId: String!): Boolean!
   createLevel(recipeLevel: String!): Level!
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(userId: String!, updateUserInput: UpdateUserInput!): User!
+  deleteUser(userId: String!): Boolean!
+  restoreDeletedUser(userId: String!): Boolean!
   createProductsCategory(name: String!): ProductsCategory!
   updateProductsCategory(productsCategoryId: String!, updateProductsCategoryName: String!): ProductsCategory!
 }
@@ -105,6 +109,7 @@ input CreateProductInput {
   amount: Int!
   productsCategoryId: String!
   matchRecipe: CreateRecipeInput!
+  productsTags: [String!]!
 }
 
 input CreateRecipeInput {
@@ -122,10 +127,29 @@ input UpdateProductInput {
   amount: Int
   productsCategoryId: String
   matchRecipe: CreateRecipeInput
+  productsTags: [String!]
 }
 
 input UpdateRecipeInput {
   recipeTitle: String
   recipeSubtitle: String
   recipeDescription: String
+}
+
+input CreateUserInput {
+  userAccount: String!
+  password: String!
+  name: String!
+  nickname: String!
+  phone: String!
+  email: String!
+}
+
+input UpdateUserInput {
+  userAccount: String
+  password: String!
+  name: String
+  nickname: String
+  phone: String
+  email: String
 }

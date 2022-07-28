@@ -32,4 +32,8 @@ export class CreateProductInput {
   // [과제용] 상품에 해당하는 레시피를 함께 등록하기 위한 Field (1:1)
   @Field(() => CreateRecipeInput)
   matchRecipe: CreateRecipeInput;
+
+  // 상품에 달린 태그를 함께 등록하기 위한 Field (N:M)
+  @Field(() => [String])
+  productsTags: string[];
 }
