@@ -14,7 +14,7 @@ type Level {
 
 type RecipesCategory {
   id: String!
-  category: String!
+  name: String!
 }
 
 type User {
@@ -40,7 +40,7 @@ scalar DateTime
 
 type Material {
   id: String!
-  material: String!
+  name: String!
   recipes: [Recipe!]!
   users: [User!]!
 }
@@ -55,6 +55,12 @@ type Recipe {
   materials: [Material!]!
 }
 
+type ProductsTag {
+  id: String!
+  name: String!
+  products: [Product!]!
+}
+
 type Product {
   id: String!
   productName: String!
@@ -65,6 +71,7 @@ type Product {
   amount: Int!
   productsCategory: ProductsCategory!
   matchRecipe: Recipe!
+  productsTags: [ProductsTag!]!
 }
 
 type Query {

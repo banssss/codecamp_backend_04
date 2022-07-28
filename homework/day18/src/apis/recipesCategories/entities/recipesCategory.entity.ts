@@ -10,5 +10,5 @@ export class RecipesCategory {
 
   @Column('varchar', { length: 100, unique: true })
   @Field(() => String)
-  category: string;
+  name: string;
 }

@@ -1,11 +1,14 @@
 import { Field, Float, Int, ObjectType } from '@nestjs/graphql';
 import { ProductsCategory } from 'src/apis/productsCategories/entities/productsCategory.entity';
+import { ProductsTag } from 'src/apis/productsTags/entities/productsTag.entity';
 import { Recipe } from 'src/apis/recipes/entities/recipe.entity';
 import {
   Column,
   DeleteDateColumn,
   Entity,
   JoinColumn,
+  JoinTable,
+  ManyToMany,
   ManyToOne,
   OneToOne,
   PrimaryGeneratedColumn,
@@ -58,4 +61,10 @@ export class Product {
   @OneToOne(() => Recipe)
   @Field(() => Recipe)
   matchRecipe: Recipe;
+
+  // M:N 은 서로 선언해야한다. productsTag.entity.ts 참조
+  @JoinTable() // M:N 관계에서 기준이 되는 entity임을 표기. (선언 위치 무관)
+  @ManyToMany(() => ProductsTag, (productsTags) => productsTags.products)
+  @Field(() => [ProductsTag])
+  productsTags: ProductsTag[];
 }
