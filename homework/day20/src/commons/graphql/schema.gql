@@ -80,7 +80,7 @@ type Query {
   fetchRecipe(recipeId: String!): Recipe!
   fetchUsers: [User!]!
   fetchUser(userMail: String!): User!
-  fetchLoginUser(userMail: String!): User!
+  fetchLoginUser: User!
   fetchProductsCategories: [ProductsCategory!]!
 }
 
@@ -96,9 +96,9 @@ type Mutation {
   createLevel(recipeLevel: String!): Level!
   createUser(createUserInput: CreateUserInput!): User!
   updateUser(userMail: String!, updateUserInput: UpdateUserInput!): User!
-  updateUserPwd(userMail: String!, userPwd: String!, newPwd: String!): User!
+  updateUserPwd(userPwd: String!, newPwd: String!): User!
   deleteUser(userMail: String!): Boolean!
-  deleteLoginUser(userMail: String!): Boolean!
+  deleteLoginUser: Boolean!
   restoreDeletedUser(userId: String!): Boolean!
   createProductsCategory(name: String!): ProductsCategory!
   updateProductsCategory(productsCategoryId: String!, updateProductsCategoryName: String!): ProductsCategory!

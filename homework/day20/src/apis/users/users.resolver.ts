@@ -1,4 +1,4 @@
-import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
+import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { CreateUserInput } from './dto/createUser.input';
 import { UpdateUserInput } from './dto/updateUser.input';
 import { User } from './entities/user.entity';
@@ -30,9 +30,9 @@ export class UsersResolver {
   @UseGuards(GqlAuthAccessGuard)
   @Query(() => User)
   async fetchLoginUser(
-    @Args('userMail') userMail: string, //
+    @Context() context: any, //
   ) {
-    return this.usersService.findOne({ userMail });
+    return this.usersService.findOne({ userMail: context.req.user.email });
   }
 
   // 사용자 생성
@@ -69,18 +69,18 @@ export class UsersResolver {
   @UseGuards(GqlAuthAccessGuard)
   @Mutation(() => User)
   async updateUserPwd(
-    @Args('userMail') userMail: string,
+    @Context() context: any, //
     @Args('userPwd') userPwd: string,
     @Args('newPwd') newPwd: string,
   ) {
     // 사용자 정보 수정 전, password 정보의 일치 여부를 확인한다.
     await this.usersService.checkUserPassword({
-      userMail,
+      userMail: context.req.user.email,
       password: userPwd,
     });
     // 사용자 정보 수정하기
     return this.usersService.updateUserPwd({
-      userMail, //
+      userMail: context.req.user.email,
       newPwd,
     });
   }
@@ -97,9 +97,11 @@ export class UsersResolver {
   @UseGuards(GqlAuthAccessGuard)
   @Mutation(() => Boolean)
   async deleteLoginUser(
-    @Args('userMail') userMail: string, //
+    @Context() context: any, //
   ) {
-    return this.usersService.deleteUser({ userMail });
+    return this.usersService.deleteUser({
+      userMail: context.req.user.email,
+    });
   }
 
   // 삭제(탈퇴) 유저 복구
