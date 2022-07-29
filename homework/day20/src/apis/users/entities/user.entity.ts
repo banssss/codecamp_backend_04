@@ -37,7 +37,7 @@ export class User {
   @Field(() => String)
   phone: string;
 
-  @Column('varchar', { length: 100 })
+  @Column('varchar', { length: 100, unique: true })
   @Field(() => String)
   email: string;
 

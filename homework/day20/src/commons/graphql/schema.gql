@@ -79,11 +79,13 @@ type Query {
   fetchRecipes: [Recipe!]!
   fetchRecipe(recipeId: String!): Recipe!
   fetchUsers: [User!]!
-  fetchUser(userId: String!): User!
+  fetchUser(userMail: String!): User!
+  fetchLoginUser(userMail: String!): User!
   fetchProductsCategories: [ProductsCategory!]!
 }
 
 type Mutation {
+  userLogin(email: String!, password: String!): String!
   createProduct(createProductInput: CreateProductInput!): Product!
   updateProduct(productId: String!, updateProductInput: UpdateProductInput!): Product!
   deleteProduct(productId: String!): Boolean!
@@ -93,8 +95,10 @@ type Mutation {
   deleteRecipe(recipeId: String!): Boolean!
   createLevel(recipeLevel: String!): Level!
   createUser(createUserInput: CreateUserInput!): User!
-  updateUser(userId: String!, updateUserInput: UpdateUserInput!): User!
-  deleteUser(userId: String!): Boolean!
+  updateUser(userMail: String!, updateUserInput: UpdateUserInput!): User!
+  updateUserPwd(userMail: String!, userPwd: String!, newPwd: String!): User!
+  deleteUser(userMail: String!): Boolean!
+  deleteLoginUser(userMail: String!): Boolean!
   restoreDeletedUser(userId: String!): Boolean!
   createProductsCategory(name: String!): ProductsCategory!
   updateProductsCategory(productsCategoryId: String!, updateProductsCategoryName: String!): ProductsCategory!
@@ -138,18 +142,19 @@ input UpdateRecipeInput {
 
 input CreateUserInput {
   userAccount: String!
+  email: String!
   password: String!
   name: String!
   nickname: String!
   phone: String!
-  email: String!
 }
 
 input UpdateUserInput {
-  userAccount: String
+  userAccount: String!
+  email: String
   password: String!
   name: String
   nickname: String
   phone: String
-  email: String
+  newPassword: String
 }

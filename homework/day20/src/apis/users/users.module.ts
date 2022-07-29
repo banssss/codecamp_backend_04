@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { JwtAccessStrategy } from 'src/commons/auth/jwt-access.strategy';
 import { User } from './entities/user.entity';
 import { UsersResolver } from './users.resolver';
 import { UsersService } from './users.service';
@@ -11,6 +12,7 @@ import { UsersService } from './users.service';
     ]),
   ],
   providers: [
+    JwtAccessStrategy, // Strategy 사용을 위한 provider 추가
     UsersResolver, //
     UsersService,
   ],

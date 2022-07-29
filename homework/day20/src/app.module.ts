@@ -7,9 +7,11 @@ import { LevelsModule } from './apis/levels/levels.module';
 import { ProductsModule } from './apis/products/products.module';
 import { RecipesModule } from './apis/recipes/recipes.module';
 import { UsersModule } from './apis/users/users.module';
+import { AuthsModule } from './apis/auths/auths.module';
 
 @Module({
   imports: [
+    AuthsModule, // 인증 모듈 추가
     ProductsModule,
     RecipesModule,
     LevelsModule,

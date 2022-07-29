@@ -6,6 +6,9 @@ export class CreateUserInput {
   userAccount: string;
 
   @Field(() => String)
+  email: string;
+
+  @Field(() => String)
   password: string;
 
   @Field(() => String)
@@ -16,7 +19,4 @@ export class CreateUserInput {
 
   @Field(() => String)
   phone: string;
-
-  @Field(() => String)
-  email: string;
 }
