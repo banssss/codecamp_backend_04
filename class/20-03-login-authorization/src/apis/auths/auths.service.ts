@@ -7,6 +7,7 @@ export class AuthsService {
     private readonly jwtService: JwtService, //
   ) {}
 
+  // Access Token 생성 - secret과 expire주기 설정
   getAccessToken({ user }) {
     return this.jwtService.sign(
       { email: user.email, sub: user.id },

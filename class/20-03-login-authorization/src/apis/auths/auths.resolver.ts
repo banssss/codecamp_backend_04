@@ -12,26 +12,28 @@ export class AuthsResolver {
   ) {}
 
   @Mutation(() => String)
-  async login(
+  async userLogin(
     @Args('email') email: string, //
     @Args('password') password: string,
   ) {
-    // 1. 로그인(이메일이 일치하는 유저를 DB에서 찾기)
+    // 1. 로그인. (입력받은 email 계정정보 불러오기)
     const user = await this.usersService.findOne({ email });
 
-    // 2. 일치하는 유저가 없으면? 에러 던지기!!!
+    // 2. 결과값이 없을 시, 오류메시지 전송
     if (!user)
       throw new UnprocessableEntityException(
-        '입력하신 이메일의 가입내역이 없습니다.',
+        '입력하신 계졍(이메일)의 가입내역이 없습니다.',
       );
 
-    // 3. 일치하는 유저가 있지만, 비밀번호가 틀렸다면?
+    // 3. 입력받은 비밀번호가 계정의 비밀번호가 다를 때, 오류메시지 전송
     const isAuth = await bcrypt.compare(password, user.password);
     if (!isAuth)
-      throw new UnprocessableEntityException('비밀번호가 일치하지 않습니다.');
+      throw new UnprocessableEntityException(
+        '비밀번호가 일치하지 않습니다. 로그인 할 수 없습니다.',
+      );
 
-    // 4. 일치하는 유저도 있고, 비밀번호도 일치한다면??
-    //    => accessToken(->JWT) 생성하여 브라우저에 전달하기.
+    // 4. 입력받은 계정과 비밀번호가 일치할 때
+    //    => accessToken( -> JWT ) 생성하여 브라우저에 전달하기.
     return this.authsService.getAccessToken({ user });
   }
 }
