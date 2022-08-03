@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>Callback and Friends</title>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+            function myCallback() {
+                const aa = new XMLHttpRequest();
+                aa.open("get", "http://numbersapi.com/random?min=1&max=200");
+                aa.send();
+                aa.addEventListener("load", (res) => {
+                    console.log("첫번째 데이터 로드, 콜백함수1 실행.");
+                    console.log(res.target.response.split(" ")[0]);
+                    const num = res.target.response.split(" ")[0];
+
+                    const bb = new XMLHttpRequest();
+                    bb.open("get", `http://koreanjson.com/posts/${num}`);
+                    bb.send();
+                    bb.addEventListener("load", (res) => {
+                        console.log("두번째 데이터 로드, 콜백함수2 실행.");
+                        console.log(JSON.parse(res.target.response));
+                        const uID = JSON.parse(res.target.response).UserId;
+
+                        const cc = new XMLHttpRequest();
+                        cc.open(
+                            "get",
+                            `http://koreanjson.com/posts?userId=${uID}`
+                        );
+                        cc.send();
+                        cc.addEventListener("load", (res) => {
+                            console.log("마지막 데이터 로드, 콜백함수3 실행.");
+                            console.log(res.target.response);
+                        });
+                    });
+                });
+                // axios.get("http://numbersapi.com/random?min=1&max=200");
+            }
+
+            // `http://koreanjson.com/posts/${num}`
+            // `http://koreanjson.com/posts?userId=${userId}`
+
+            function myPromise() {
+                // axios
+                //     .get("http://numbersapi.com/random?min=1&max=200")
+                //     .then((res) => {
+                //         const num = res.data.split(" ")[0];
+                //         axios
+                //             .get(`http://koreanjson.com/posts/${num}`)
+                //             .then((res) => {
+                //                 const uID = res.data.UserId;
+                //                 axios
+                //                     .get(
+                //                         `http://koreanjson.com/posts?userId=${uID}`
+                //                     )
+                //                     .then((res) => {
+                //                         console.log(res.data);
+                //                     });
+                //             });
+                //     });
+                console.log("1번 실행");
+                axios
+                    .get("http://numbersapi.com/random?min=1&max=200")
+                    .then((res) => {
+                        console.log("2번 실행");
+                        const num = res.data.split(" ")[0];
+                        return axios.get(`http://koreanjson.com/posts/${num}`);
+                    })
+                    .then((res) => {
+                        console.log("3번 실행");
+                        const uID = res.data.UserId;
+                        return axios.get(
+                            `http://koreanjson.com/posts?userId=${uID}`
+                        );
+                    })
+                    .then((res) => {
+                        console.log("4번 실행");
+                        console.log(res.data);
+                    });
+                console.log("5번 실행");
+                // promise chaining
+            }
+            async function myAsyncAwait() {
+                const res1 = await axios.get(
+                    "http://numbersapi.com/random?min=1&max=200"
+                );
+                const num = res1.data.split(" ")[0];
+
+                const res2 = await axios.get(
+                    `http://koreanjson.com/posts/${num}`
+                );
+                const userId = res2.data.UserId;
+
+                const res3 = await axios.get(
+                    `http://koreanjson.com/posts?userId=${userId}`
+                );
+                console.log(res3.data);
+            }
+
+            //   function add(x, y, callback) {
+            //     let result = x * y;
+            //     callback(result); // callback 인자에 쓰일 함수에 result라는 인자를 받을 수 있습니다.
+            //   }
+
+            //   // callback 인자값에 사용할 함수 생성
+            //   function print(data) {
+            //     console.log("콜백함수 실행 결과값: ", data);
+            //   }
+
+            //   add(5, 10, print);
+        </script>
+    </head>
+    <body>
+        <button onclick="myCallback()">Callback 연습하기!!</button>
+        <br />
+        <br />
+        <button onclick="myPromise()">Promise 연습하기!!</button>
+        <br />
+        <br />
+        <button onclick="myAsyncAwait()">Async | Await 연습하기!!</button>
+    </body>
+</html>
