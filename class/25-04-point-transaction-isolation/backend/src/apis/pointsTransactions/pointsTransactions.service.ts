@@ -54,7 +54,7 @@ export class PointsTransactionsService {
         ...user,
         point: user.point + amount,
       });
-      queryRunner.manager.save(updatedUser);
+      await queryRunner.manager.save(updatedUser);
 
       // ========================== commit 성공 확정!!! ========================== //
       await queryRunner.commitTransaction();
