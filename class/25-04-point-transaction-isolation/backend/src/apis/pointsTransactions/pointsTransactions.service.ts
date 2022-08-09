@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Connection, Repository } from 'typeorm';
+import { DataSource, Repository } from 'typeorm';
 import { User } from '../users/entities/user.entity';
 import {
   PointTransaction,
@@ -16,11 +16,11 @@ export class PointsTransactionsService {
     @InjectRepository(User)
     private readonly usersRepository: Repository<User>,
 
-    private readonly connection: Connection,
+    private readonly dataSource: DataSource,
   ) {}
 
   async create({ impUid, amount, user: _user }) {
-    const queryRunner = this.connection.createQueryRunner();
+    const queryRunner = this.dataSource.createQueryRunner();
     await queryRunner.connect();
 
     // ========================== transaction 시작!!! ========================== //

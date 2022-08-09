@@ -3,3 +3,4 @@ node_modules
 .env
 .vscode
 codecamp-backend04-967b235e652b.json
+gcp-file-storage.json
