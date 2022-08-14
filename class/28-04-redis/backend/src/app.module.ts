@@ -44,6 +44,7 @@ import * as redisStore from 'cache-manager-redis-store';
       synchronize: true,
       logging: true,
     }),
+    // redis 연결을 위한 CacheModule 추가
     CacheModule.register<RedisClientOptions>({
       store: redisStore,
       url: 'redis://my-redis:6379',
