@@ -1,2 +1,7 @@
 node_modules/
+
+# 이전 빌드를 통한 예상못한 에러를 방지하기 위함
+dist
+
+# Mac
 .DS_Store
