@@ -20,7 +20,7 @@ steps:
       - set
       - image
       - deployment/mybackend04-nestjs
-      - mybackend04-nestjs-sha256-1=asia.gcr.io/codecamp-backend04/mybackend04-nestjs:1.8
+      - mybackend04-nestjs-sha256-1=asia.gcr.io/codecamp-backend04/mybackend04-nestjs:1.9
     env:
       - CLOUDSDK_COMPUTE_ZONE=asia-northeast3
       - CLOUDSDK_CONTAINER_CLUSTER=mybackend04-cluster-1
